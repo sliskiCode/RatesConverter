@@ -5,6 +5,8 @@
 - [3rd party libraries](#3rd-party-libraries)
 - [Known issues](#known-issues)
 
+![](static/demo.gif)
+
 ## Overview
 
 It is a rates converter client that shows currencies with prices.
