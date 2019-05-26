@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.get
+import com.slesarew.ratesconverter.currencylist.view.adapter.CurrencyListAdapter
 import com.slesarew.ratesconverter.currencylist.viewmodel.CurrencyListViewModel
 import com.slesarew.ratesconverter.currencylist.viewmodel.CurrencyListViewModelFactory
 import com.slesarew.ratesconverter.databinding.FragmentCurrencyListBinding

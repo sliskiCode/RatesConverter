@@ -1,6 +1,7 @@
 package com.slesarew.ratesconverter.currencylist.view.adapter
 
 import android.view.View
+import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.slesarew.ratesconverter.currencylist.viewmodel.model.CurrencyPresentationModel

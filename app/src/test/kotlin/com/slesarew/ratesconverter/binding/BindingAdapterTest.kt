@@ -13,7 +13,6 @@ import com.nhaarman.mockitokotlin2.verify
 import com.slesarew.ratesconverter.R
 import com.slesarew.ratesconverter.currencylist.view.adapter.CurrencyListAdapter
 import com.slesarew.ratesconverter.currencylist.viewmodel.model.CurrencyPresentationModel
-import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.Shadows
@@ -65,6 +64,6 @@ class BindingAdapterTest {
     private fun ImageView.hasImage(@DrawableRes resId: Int) {
         val drawableResId = Shadows.shadowOf(drawable).createdFromResId
 
-        Assert.assertEquals(resId, drawableResId)
+        assertEquals(resId, drawableResId)
     }
 }
