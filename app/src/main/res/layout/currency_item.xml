@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.slesarew.ratesconverter.currencylist.viewmodel.model.CurrencyPresentationModel"/>
+
+        <variable
+            name="onBaseCurrencyCodeChanged"
+            type="com.slesarew.ratesconverter.currencylist.view.adapter.OnBaseCurrencyCodeChanged"/>
+
+        <variable
+            name="onBaseValueChanged"
+            type="com.slesarew.ratesconverter.currencylist.view.adapter.OnBaseValueChanged"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> onBaseCurrencyCodeChanged.onChanged(model.currencyCode, model.value)}"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/flag"
+            android:layout_width="@dimen/flag_size"
+            android:layout_height="@dimen/flag_size"
+            android:layout_marginStart="@dimen/flag_margin"
+            android:layout_marginTop="@dimen/flag_margin"
+            android:layout_marginBottom="@dimen/flag_margin"
+            android:contentDescription="@{model.displayName}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setCurrency="@{model.currencyCode}"
+            tools:srcCompat="@drawable/currency_eur"/>
+
+        <TextView
+            android:id="@+id/currency_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/currency_code_margin"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@{model.currencyCode}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toEndOf="@+id/flag"
+            app:layout_constraintTop_toTopOf="@+id/flag"
+            tools:text="EUR"/>
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/input_margin"
+            android:layout_marginTop="@dimen/input_margin"
+            android:layout_marginEnd="@dimen/input_margin"
+            android:layout_marginBottom="@dimen/input_margin"
+            android:fontFamily="@font/roboto"
+            android:inputType="number"
+            android:onTextChanged="@{(text, start, before, count) -> onBaseValueChanged.onChanged(text.toString)}"
+            android:text="@{model.value}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/currency_code"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="Autofill, LabelFor"
+            tools:text="1"/>
+
+        <TextView
+            android:id="@+id/displayName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:text="@{model.displayName}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintBottom_toBottomOf="@+id/flag"
+            app:layout_constraintStart_toStartOf="@+id/currency_code"
+            app:layout_constraintTop_toBottomOf="@+id/currency_code"
+            tools:text="Euro"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

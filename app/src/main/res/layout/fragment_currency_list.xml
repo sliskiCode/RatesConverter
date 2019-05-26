@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="state"
+            type="com.slesarew.ratesconverter.currencylist.viewmodel.state.ViewState"/>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/error"
+            android:layout_width="@dimen/error_size"
+            android:layout_height="@dimen/error_size"
+            android:layout_gravity="center"
+            android:contentDescription="@string/server_error"
+            android:src="@drawable/ic_server_error"
+            android:tint="@color/colorPrimary"
+            android:visibility="@{state.hasError ? View.VISIBLE : View.GONE}"/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/pull_to_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="@{state.hasError}"
+            app:refreshing="@{state.loading}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/horizontal_margin"
+                android:layout_marginRight="@dimen/horizontal_margin"
+                app:layoutManager="LinearLayoutManager"
+                app:scrollToTop="@{state.scrollToTop}"
+                app:setData="@{state.currencies}"/>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </FrameLayout>
+
+</layout>

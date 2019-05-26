@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="flag_size">40dp</dimen>
+    <dimen name="error_size">100dp</dimen>
+
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="flag_margin">16dp</dimen>
+    <dimen name="currency_code_margin">16dp</dimen>
+    <dimen name="input_margin">8dp</dimen>
+</resources>
